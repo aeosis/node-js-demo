@@ -70,7 +70,16 @@ navigation">
   <!-- /.container -->
   <script>
   (function() {
-
+ let xhr = new XMLHttpRequest();
+ xhr.open("GET","/weather.json");
+ xhr.onload = function() {
+	let myWeatherData = JSON.parse(xhr.responseText);
+	let textData = myWeatherData.currentWeather.text;
+	document.querySelector("#weather").textContent = textData;
+	//alainasWeatherDisplay.textContent = textData;
+	
+};
+xhr.send();	
   })();
   </script>
 </body>
